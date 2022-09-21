@@ -73,6 +73,20 @@ async def count(ctx):
     for guy in list:
         await ctx.send(guy)
 
+@bot.command(pass_context=True) #J'ai compris qu'il fallait reposter la question et faire en sorte que le bot rajoute deux réaction, pouce en l'air et pouce vers le bas
+async def poll(ctx,arg):
+    message = await ctx.send(arg)
+    emojiUp = '\N{THUMBS UP SIGN}'
+    emojiDown = '\N{THUMBS DOWN SIGN}'
+    await message.add_reaction(emojiUp)
+    await message.add_reaction(emojiDown)
 
-token =
+@bot.command(pass_context=True)
+async def xkcd(ctx):
+    embed = discord.Embed()
+    embed.set_image(url="https://xkcd.com")
+    await ctx.send(embed=embed)
+
+
+token = "MTAyMjE5Mzg4NDk2MjUwNDgwNA.GBX3vP.DDfUhzHTQyXYFIyRElyrvkMWGzmCdyRh0Hmn8E"
 bot.run(token)  # Starts the bot
